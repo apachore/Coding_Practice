@@ -1,9 +1,10 @@
 
+typedef void(*pFunctionPointer)();
 
 class funcPointer
 {
 public:
-	bool assignFunc(void (*function)(), int number);
+	bool assignFunc(pFunctionPointer, int number);
 	bool runFunc(int number);
 	funcPointer();
 	funcPointer(int size);
@@ -11,5 +12,5 @@ public:
 
 private:
 	int size;
-	void (*pFuncPointerArray[5])();
+	pFunctionPointer *pFuncPointerArray;
 };

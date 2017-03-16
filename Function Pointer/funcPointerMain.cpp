@@ -27,7 +27,8 @@ void intrptHandle4()
 
 int main()
 {
-	funcPointer interrupt(5);
+	funcPointer interrupt(50);
+
 	cout << endl << interrupt.assignFunc(intrptHandle0,0);
 	cout << endl << interrupt.assignFunc(intrptHandle1,1);
 	cout << endl << interrupt.assignFunc(intrptHandle2,2);

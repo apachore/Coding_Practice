@@ -10,29 +10,25 @@ funcPointer::funcPointer()
 {
 	size = 5;
 	//pFuncPointerArray[size] = {};
-	for(int i =0; i<size; i++)
+	/*for(int i =0; i<size; i++)
 	{
 		pFuncPointerArray[i] = NULL;
-	}
+	}*/
 
-	//pFuncPointerArray = new (*)[size];
+	pFuncPointerArray = new pFunctionPointer[size];
 };
 
 
 funcPointer::funcPointer(int len = 5)
 {
 	size = len;
-	//pFuncPointerArray[size] = {};
-	for(int i =0; i<size; i++)
-	{
-		pFuncPointerArray[i] = NULL;
-		
-	}
+
+	pFuncPointerArray = new pFunctionPointer[size];
 
 	//cout << endl << "Size: "<<size;
 };
 
-bool funcPointer:: assignFunc(void (*function)(), int number)
+bool funcPointer:: assignFunc(pFunctionPointer function, int number)
 {
 	if(function == NULL)
 	{
@@ -59,7 +55,7 @@ bool funcPointer::runFunc(int number)
 		return false;
 	}	
 
-	(*pFuncPointerArray[number])();
+	(*(*pFuncPointerArray[number]))();
 
 	return true;
 };
@@ -71,7 +67,8 @@ funcPointer::~funcPointer()
 		pFuncPointerArray[i] = NULL;
 	}
 
-	//pFuncPointerArray[size] = {};
+	delete pFuncPointerArray;
+	pFuncPointerArray = NULL;
 	size=0;
 };
 
